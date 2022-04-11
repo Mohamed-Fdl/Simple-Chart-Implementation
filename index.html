@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myChart" width="400" height="180"></canvas>
+    <script>
+        //voici les coordonnees des points de la courbe (x,y)
+        const points = {
+            x: [0],
+            y: [0]
+        }
+        const ctx = document.getElementById('myChart');
+
+        function draw(points) {
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: points.x,
+                    datasets: [{
+                        label: 'My chart',
+                        data: points.y,
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1,
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'x',
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        draw(points)
+    </script>
+
+
+
+</body>
+
+</html>
